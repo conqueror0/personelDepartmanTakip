@@ -1,0 +1,20 @@
+﻿@model CoreDepartman.Models.personal
+@{
+    ViewData["Title"] = "PersonelİzinGetir";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("PersonelİzinGuncelle", "personel", FormMethod.Post))
+{
+    
+    <b>Personel İşe Giriş Tarihi</b>
+    @Html.TextBoxFor(x => x.iseGirisTarihi, new { @class = "form-control" })
+    <br />
+
+    <b>Personel Yıllık İzin Hakkı</b>
+    @Html.TextBoxFor(x => x.yillikizinhakki, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-default" style="background-color:aqua" ; color:black;>Personel Yıllık İzin Güncelle</button>
+}

@@ -1,0 +1,39 @@
+﻿@model CoreDepartman.Models.personal
+@{
+    ViewData["Title"] = "PersonelGetir";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("PersonelGuncelle", "personel", FormMethod.Post))
+{
+    <b>Personel ID</b>
+    @Html.TextBoxFor(x => x.perid, new { @class = "form-control" })
+    <br />
+
+    <b>Personel Adı</b>
+    @Html.TextBoxFor(x => x.ad, new { @class = "form-control" })
+    <br />
+
+    <b>Personel Soyadı</b>
+    @Html.TextBoxFor(x => x.soyad, new { @class = "form-control" })
+    <br />
+
+    <b>Personel Şehri</b>
+    @Html.TextBoxFor(x => x.şehir, new { @class = "form-control" })
+    <br />
+
+    <b>Personel Departmanı</b>
+    @Html.DropDownListFor(x => x.departmanlar.id, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    <br />
+
+    <b>Personel İşe Giriş Tarihi</b>
+    @Html.TextBoxFor(x => x.iseGirisTarihi, new { @class = "form-control" })
+    <br />
+
+    <b>Personel Yıllık İzin Hakkı</b>
+    @Html.TextBoxFor(x => x.yillikizinhakki, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-default" style="background-color:#ff6a00" ; color:black;>Personel Güncelle</button>
+}

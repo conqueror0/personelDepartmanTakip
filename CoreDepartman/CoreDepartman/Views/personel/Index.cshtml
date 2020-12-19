@@ -1,0 +1,38 @@
+﻿@using CoreDepartman.Models
+@model List<personal>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+        <th>Departman</th>
+        <th>İşe Giriş Tarihi</th>
+        <th>Personel Sil</th>
+        <th>Personel Güncelle</th>
+        <th>Yıllık İzin Hakkı</th>
+        <th>Yıllık İzin Hakkı Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+    <tr>
+        <td>@x.perid</td>
+        <td>@x.ad</td>
+        <td>@x.soyad</td>
+        <td>@x.şehir</td>
+        <td>@x.departmanlar.departmanAd</td>
+        <td>@x.iseGirisTarihi</td>
+        <td><a href="/personel/PersonelSil/@x.perid" class="btn btn-danger">Personel Sil</a></td>
+        <td><a href="/personel/PersonelGetir/@x.perid" class="btn btn-success">Personel Güncelle</td>
+        <td>@x.yillikizinhakki</td>
+        <td><a href="/personel/PersonelİzinGetir/@x.perid" class="btn btn-default" style="color:darkgray">Yıllık İzin Hakkı Güncelle</td>
+    </tr>
+    }
+</table>
+<a href="/personel/YeniPersonel" class="btn btn-primary">Yeni Personel Ekle</a>
